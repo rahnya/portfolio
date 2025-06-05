@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-cream text-navy font-sans;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-cream;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary-dark;
+}
+
+/* Custom Cursor */
+.custom-cursor {
+  @apply fixed rounded-full pointer-events-none z-50 mix-blend-difference;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s, transform 0.1s;
+}
+
+/* Custom Transitions */
+.fade-in {
+  @apply transition-all duration-500 ease-out;
+}
+
+/* Navigation Styles */
+.nav-link {
+  @apply relative text-navy hover:text-secondary transition-colors duration-300 px-2 py-1;
+}
+
+.nav-link::after {
+  @apply content-[''] absolute bottom-0 left-0 w-0 h-0.5 bg-secondary transition-all duration-300 ease-out;
+}
+
+.nav-link:hover::after {
+  @apply w-full;
+}
+
+.nav-link.active::after {
+  @apply w-full;
+}
+
+/* Button Styles */
+.btn {
+  @apply px-6 py-3 rounded-md font-medium transition-all duration-300 inline-block;
+}
+
+.btn-primary {
+  @apply bg-primary text-cream hover:bg-primary-dark shadow-md hover:shadow-lg;
+}
+
+.btn-secondary {
+  @apply bg-secondary text-cream hover:bg-secondary-dark shadow-md hover:shadow-lg;
+}
+
+.btn-outline {
+  @apply border-2 border-primary text-primary hover:bg-primary hover:text-cream shadow-md hover:shadow-lg;
+}
+
+/* Card Styles */
+.card {
+  @apply rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300;
+}
+
+/* Section Styles */
+.section {
+  @apply py-16 md:py-24;
+}
+
+.section-title {
+  @apply text-3xl md:text-4xl font-display font-bold mb-8 relative inline-block;
+}
+
+.section-title::after {
+  @apply content-[''] absolute -bottom-2 left-0 w-2/3 h-1 bg-accent rounded-full;
+}
